@@ -127,15 +127,15 @@ PxCreateFoundation(physx::PxU32 version, physx::PxAllocatorCallback& allocator, 
 
 @see PxCreateFoundation()
 */
-#if PX_CLANG
-#if PX_LINUX
+#if PX_CLANG || PX_MICROSOFT_CLANG
+#if PX_LINUX || PX_MICROSOFT_CLANG
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wreturn-type-c-linkage"
 #endif // PX_LINUX
 #endif // PX_CLANG
 PX_C_EXPORT PX_FOUNDATION_API physx::PxFoundation& PX_CALL_CONV PxGetFoundation();
-#if PX_CLANG
-#if PX_LINUX
+#if PX_CLANG || PX_MICROSOFT_CLANG
+#if PX_LINUX || PX_MICROSOFT_CLANG
 #pragma clang diagnostic pop
 #endif // PX_LINUX
 #endif // PX_CLANG

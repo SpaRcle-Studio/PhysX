@@ -246,6 +246,7 @@ family shortcuts
 // os
 #define PX_WINDOWS_FAMILY (PX_WIN32 || PX_WIN64 || PX_UWP)
 #define PX_MICROSOFT_FAMILY (PX_XBOXONE || PX_WINDOWS_FAMILY || PX_XBOX_SERIES_X)
+#define PX_MICROSOFT_CLANG (PX_MICROSOFT_FAMILY && __clang__)
 #define PX_LINUX_FAMILY (PX_LINUX || PX_ANDROID)
 #define PX_APPLE_FAMILY (PX_IOS || PX_OSX)                  // equivalent to #if __APPLE__
 #define PX_UNIX_FAMILY (PX_LINUX_FAMILY || PX_APPLE_FAMILY) // shortcut for unix/posix platforms
@@ -336,7 +337,7 @@ Pack macros - disabled on SPU because they are not supported
 Inline macro
 */
 #define PX_INLINE inline
-#if PX_MICROSOFT_FAMILY
+#if PX_MICROSOFT_FAMILY && !PX_MICROSOFT_CLANG
 #pragma inline_depth(255)
 #endif
 

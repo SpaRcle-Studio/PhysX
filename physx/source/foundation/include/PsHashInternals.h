@@ -36,6 +36,11 @@
 #include "PsHash.h"
 #include "foundation/PxIntrinsics.h"
 
+#if PX_MICROSOFT_CLANG
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-copy-with-user-provided-copy"
+#endif // PX_MICROSOFT_CLANG
+
 #if PX_VC
 #pragma warning(push)
 #pragma warning(disable : 4127) // conditional expression is constant
@@ -792,4 +797,9 @@ class HashMapBase
 #if PX_VC
 #pragma warning(pop)
 #endif
+
+#if PX_MICROSOFT_CLANG
+#pragma clang diagnostic pop
+#endif // PX_MICROSOFT_CLANG
+
 #endif // #ifndef PSFOUNDATION_PSHASHINTERNALS_H
