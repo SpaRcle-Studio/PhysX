@@ -99,7 +99,7 @@ PX_INLINE uint32_t hash(const size_t key)
 }
 #endif
 
-#if PX_LINUX
+#if PX_EMSCRIPTEN
 // On Linux/Emscripten, 'unsigned long' is a distinct type from uint32_t and uint64_t,
 // causing ambiguous overload when hashing. Provide an explicit overload.
 PX_INLINE uint32_t hash(const unsigned long key)
